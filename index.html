@@ -530,6 +530,11 @@
 </div>
 
 <script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get('token') || '';
+  const email = urlParams.get('email') || '';
+  const destination = urlParams.get('destination') || '';
+
   function selectOption(el) {
     document.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
     el.classList.add('selected');
@@ -548,6 +553,15 @@
       alert('Please fill in: ' + missing.join(', '));
       return;
     }
+
+    const params = new URLSearchParams();
+    if (token) params.set('token', token);
+    if (email) params.set('email', email);
+    if (destination) params.set('destination', destination);
+
+    const query = params.toString();
+    const target = 'https://wxsd-sales.github.io/wxcc-chat-and-more-customer/' + (query ? '?' + query : '');
+    window.open(target, '_blank');
 
     document.getElementById('formArea').style.display = 'none';
     document.getElementById('submitWrap').style.display = 'none';
