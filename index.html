@@ -558,6 +558,7 @@
     if (token) params.set('token', token);
     if (email) params.set('email', email);
     if (destination) params.set('destination', destination);
+    params.set('name', first + ' ' + last);
 
     const query = params.toString();
     const target = 'https://wxsd-sales.github.io/wxcc-chat-and-more-customer/' + (query ? '?' + query : '');
