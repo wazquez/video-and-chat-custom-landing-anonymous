@@ -185,9 +185,12 @@
     color-scheme: light;
   }
   input[type="text"]::placeholder { color: var(--text-muted); }
-  input:-webkit-autofill {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0 1000px white inset;
     -webkit-text-fill-color: var(--text-primary);
+    forced-color-adjust: none;
   }
   input[type="text"]:focus,
   select:focus {
