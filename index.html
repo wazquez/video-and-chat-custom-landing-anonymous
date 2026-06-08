@@ -373,8 +373,8 @@
 
   <!-- Header -->
   <div class="page-header">
-    <h1>Speak with an Agent on Demand</h1>
-    <p>Fill out the information below and we'll connect you with a United airport expert.</p>
+    <h1>Speak with an Agent</h1>
+    <p>Fill out the information below and we'll connect you with an expert.</p>
   </div>
 
   <!-- Form -->
@@ -388,30 +388,6 @@
     <div class="field-group">
       <label>Last name</label>
       <input type="text" id="lastName" placeholder="Last name" value="">
-    </div>
-
-    <div class="field-group">
-      <label>What do you need help with?</label>
-      <div class="select-wrap">
-        <select id="helpTopic">
-          <option value="">Select a topic…</option>
-          <option value="flight">Flight Status / Delays</option>
-          <option value="baggage">Baggage & Lost Items</option>
-          <option value="checkin">Check-in & Boarding</option>
-          <option value="upgrade">Upgrades & Seating</option>
-          <option value="mileageplus">MileagePlus</option>
-          <option value="other" selected>Something Else</option>
-        </select>
-        <span class="select-arrow">⌄</span>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <label>Current airport location <span class="required-dot"></span></label>
-      <div class="input-with-clear">
-        <input type="text" id="airport" placeholder="Search airport…" value="Baltimore BWI">
-        <button class="clear-btn" onclick="document.getElementById('airport').value=''">×</button>
-      </div>
     </div>
 
     <div class="connect-section">
@@ -483,13 +459,11 @@
   function handleSubmit() {
     const first = document.getElementById('firstName').value.trim();
     const last = document.getElementById('lastName').value.trim();
-    const airport = document.getElementById('airport').value.trim();
 
-    if (!first || !last || !airport) {
+    if (!first || !last) {
       const missing = [];
       if (!first) missing.push('First name');
       if (!last) missing.push('Last name');
-      if (!airport) missing.push('Airport location');
       alert('Please fill in: ' + missing.join(', '));
       return;
     }
